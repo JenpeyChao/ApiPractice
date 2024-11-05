@@ -6,6 +6,8 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class taskService {
     @Autowired
@@ -21,5 +23,9 @@ public class taskService {
 
     public void deleteTasks(ObjectId id) {
         this.tasksDAO.deleteById(id);
+    }
+
+    public List<Tasks> getTasks() {
+        return this.tasksDAO.findAll();
     }
 }

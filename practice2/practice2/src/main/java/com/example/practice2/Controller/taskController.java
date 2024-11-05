@@ -6,6 +6,8 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class taskController {
     @Autowired
@@ -22,5 +24,9 @@ public class taskController {
     @DeleteMapping("/task/{id}")
     public void deleteTasks(@PathVariable ObjectId id){
         taskService.deleteTasks(id);
+    }
+    @GetMapping("/task")
+    public List<Tasks> getTasks(){
+        return taskService.getTasks();
     }
 }
