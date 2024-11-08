@@ -17,4 +17,24 @@ public class TeamMembers {
     private String name;
     private String team;
     private List<ObjectId> tasks;
+
+    public ObjectId getObjectId() {
+        return objectId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getTeam() {
+        return team;
+    }
+
+    public List<ObjectId> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<ObjectId> tasks) {
+        this.tasks = tasks;
+    }
 }

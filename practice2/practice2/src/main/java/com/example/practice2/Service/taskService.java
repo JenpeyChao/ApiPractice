@@ -7,11 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class taskService {
-    @Autowired
 
+    @Autowired
     private tasksDAO tasksDAO;
     public Tasks addTask(Tasks task){
         return this.tasksDAO.insert(task);
@@ -27,5 +28,19 @@ public class taskService {
 
     public List<Tasks> getTasks() {
         return this.tasksDAO.findAll();
+    }
+
+    public Tasks findTaskById(ObjectId id){
+        Optional<Tasks>  res= this.tasksDAO.findById(id);
+        return (res.isPresent())? res.get() :null;
+    }
+
+    public Tasks completeTask(ObjectId id) {
+        Tasks res = findTaskById(id);
+        if(res != null){
+            res.setCompleted(true);
+            return this.tasksDAO.save(res);
+        }
+        return null;
     }
 }

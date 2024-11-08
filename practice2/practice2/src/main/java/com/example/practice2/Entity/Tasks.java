@@ -18,4 +18,12 @@ public class Tasks {
     private String priority;
     private String deadline;
     private boolean completed;
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
 }

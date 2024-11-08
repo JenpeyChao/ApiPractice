@@ -17,16 +17,29 @@ public class taskController {
     public Tasks addTasks(@RequestBody Tasks task){
         return taskService.addTask(task);
     }
+
     @PutMapping("/task")
     public Tasks updateTasks(@RequestBody Tasks task){
         return taskService.updateTask(task);
     }
+
     @DeleteMapping("/task/{id}")
     public void deleteTasks(@PathVariable ObjectId id){
         taskService.deleteTasks(id);
     }
+
     @GetMapping("/task")
     public List<Tasks> getTasks(){
         return taskService.getTasks();
+    }
+
+    @GetMapping("/task/{id}")
+    public Tasks getTaskById(@PathVariable ObjectId id){
+        return taskService.findTaskById(id);
+    }
+
+    @PutMapping("/task/{id}")
+    public Tasks completeTask(@PathVariable ObjectId id){
+        return taskService.completeTask(id);
     }
 }
