@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+//allows the TeamMember service to use the API's from Tasks
 @FeignClient(name = "practice2",url = "http://localhost:8080")
 public interface TaskService {
 

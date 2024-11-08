@@ -31,11 +31,13 @@ public class taskService {
     }
 
     public Tasks findTaskById(ObjectId id){
+        //gets the task by the task id
         Optional<Tasks>  res= this.tasksDAO.findById(id);
         return (res.isPresent())? res.get() :null;
     }
 
     public Tasks completeTask(ObjectId id) {
+        //finds the task and changes it to complete
         Tasks res = findTaskById(id);
         if(res != null){
             res.setCompleted(true);

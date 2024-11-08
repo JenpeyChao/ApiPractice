@@ -22,13 +22,6 @@ public class TeamMembers {
         return objectId;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getTeam() {
-        return team;
-    }
 
     public List<ObjectId> getTasks() {
         return tasks;
